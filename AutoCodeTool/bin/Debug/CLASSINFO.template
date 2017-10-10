@@ -1,0 +1,199 @@
+// Copyright (c) 2016 Ni Technology
+// All rights reserved.
+//
+// The copyright to the computer program(s) herein is the property of 
+// Ni Technology. The program(s) may be used and/or copied
+// only with the written permission of the owner or in accordance with
+// the terms and conditions stipulated in the contract under which the
+// program(s) have been supplied.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Xml;
+using FedEx.Components.CleanUp;
+using FedEx.Entities.DBTables.<#TABLENAME#>;
+using log4net;
+using NHibernate;
+using NHibernate.Util;
+using VI.MFC.Logging;
+
+namespace FedEx.Components.<#TABLENAME#>Info
+{
+    /// <summary>
+    /// Implementation of a component responsible for creating, updating and retrieving information about
+    /// parcels which have been scanned and which therefore have been assigned a 
+    /// host pic. It is to be used by the sortation logics to track parcels through the system.
+    /// This must be an active component due to the housekeeping (7 days).
+    /// </summary>
+    public class <#TABLENAME#>Info : CleanUpBrokerBase, I<#TABLENAME#>Info
+    {
+
+        private static readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private const string EntityDbTable = "<#TABLENAME#>";
+        
+        // only for unittest
+        //private readonly Dictionary<long, <#TABLENAME#>Entity> <#TABLENAME#>List = new Dictionary<long, <#TABLENAME#>Ent>();
+
+        #region Class constructor
+        /// <summary>
+        /// Static class creation
+        /// </summary>
+        /// <param name="configNode"></param>
+        /// <returns></returns>
+        public static <#TABLENAME#>Info Create(XmlNode configNode)
+        {
+            var broker = new <#TABLENAME#>Info();
+            broker.Init(configNode);
+            return broker;
+        }
+        /// <summary>
+        /// Constructor called by bootstrap loader. 
+        /// </summary>
+        public <#TABLENAME#>Info()
+        {
+
+        }
+        /// <summary>
+        /// PLACEHOLDER: Please extend if required.
+        /// Constructor which will only be used for injecting inner class dependencies.
+        /// Injecting glue based dependencies should be done directly in the unittest code.
+        /// It is only for Unit Test.
+        /// </summary>
+        /// <param name="dependency"></param>
+        public <#TABLENAME#>Info(object dependency)
+        {
+            if (dependency == null) // Not called by unittest. We have to instantiate the real object.
+            {
+                
+            }
+        }
+        #endregion
+        #region Override method
+        /// <summary>
+        /// Override from base class
+        /// Get the class information
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return "<#TABLENAME#> broker class";
+        }
+
+        /// <summary>
+        /// Start the broker
+        /// </summary>
+        protected override void StartInternal()
+        {
+            base.StartInternal();//start the cleanup thread
+            logger.InfoMethod("<#TABLENAME#> broker started.");
+        }
+
+        /// <summary>
+        /// Here we may load data from the database during startup in case we were
+        /// a caching broker. Non-caching broker (preferred) may not do anything here.
+        /// </summary>
+        public override void ReadBrokerData()
+        {
+            LoadAllData();
+        }
+        #endregion
+        #region Methods related to the thread
+        /// <summary>
+        /// Calling the cleanupbroker to delete all records with the delete timestamp set
+        /// </summary>
+        /// <param name="theDate">the datetime</param>
+        /// <param name="maxRecords">max Records</param>
+        /// <returns></returns>
+        public override long DeleteRecordsOlderThan(DateTime theDate, long maxRecords)
+        {
+            try
+            {
+                long deletedRecords = ExecDeleteQuery(EntityDbTable, theDate, maxRecords, null);
+                logger.InfoMethod(string.Format("Execute hosuekeeping and delete {0} records in {1}", deletedRecords, GetId()));
+                return deletedRecords;
+            }
+            catch (Exception e)
+            {
+                logger.ErrorMethod(string.Format("Failed to execute housekeeping in {0}", GetId()), e);
+                throw;
+            }
+        }
+        #endregion
+        #region Method
+        /// <summary>
+        /// Load all data for the chute broker
+        /// <param name="session">stateless session</param>
+        /// <returns>void</returns>
+        /// </summary>
+        protected void LoadAllData(IStatelessSession session = null)
+        {
+            var tmp = GetAllEmployeeList(session);
+        }
+        #endregion
+        #region Interface implementation
+        /// <summary>
+        /// Return the chute by the chute id
+        /// </summary>
+        /// <param name="id">Chute ID</param>
+        /// <returns>Chute information</returns>
+        public <#TABLENAME#> Get<#TABLENAME#>ById(long id, IStatelessSession session = null)
+        {
+            <#TABLENAME#> ret = null;
+
+            if (session == null)
+            {
+                // ReSharper disable AccessToModifiedClosure
+                ret = BrokerDelegate(() => Get<#TABLENAME#>ById(id,session), ref session);
+                // ReSharper restore AccessToModifiedClosure
+                return ret;
+            }
+            
+            try
+            {
+                var tmp = ReadList<<#TABLENAME#>>(session, string.Format("FROM {0} where Id = {1}", EntityDbTable, Id));
+                if (tmp.Any())
+                {
+                    ret = tmp.FirstOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                logger.ErrorMethod("Failed to load <#TABLENAME#> info", e);
+                //throw;
+            }
+
+            return ret;
+        }
+        /// <summary>
+        /// Get all <#TABLENAME#> information
+        /// </summary>
+        /// <param name="sorterId">Sorter ID</param>
+        /// <returns>List of chutes information, return empty when no data</returns>
+        public List<<#TABLENAME#>> GetAllEmployeeList(IStatelessSession session)
+        {
+            List<<#TABLENAME#>> ret = null;
+
+            if (session == null)
+            {
+                // ReSharper disable AccessToModifiedClosure
+                ret = BrokerDelegate(() => GetAllEmployeeList(session), ref session);
+                // ReSharper restore AccessToModifiedClosure
+                return ret;
+            }
+
+            try
+            {
+                ret = ReadList<<#TABLENAME#>>(session, string.Format("FROM {0}", EntityDbTable));
+            }
+            catch (Exception e)
+            {
+                logger.ErrorMethod("Failed to load <#TABLENAME#> info", e);
+                //throw;
+            }
+
+            return ret;
+        }
+        #endregion
+    }
+}

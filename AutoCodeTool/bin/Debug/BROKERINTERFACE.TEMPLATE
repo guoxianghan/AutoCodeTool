@@ -1,0 +1,15 @@
+﻿using NHibernate;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SNTON.Components.
+{
+    public interface I<#TABLENAME#>
+    {        
+	    <#TABLENAME#>Entity Get<#TABLENAME#>EntityByID(long id, IStatelessSession session=null);
+        List<<#TABLENAME#>Entity> GetAll<#TABLENAME#>Entity(IStatelessSession session=null);
+    }
+}

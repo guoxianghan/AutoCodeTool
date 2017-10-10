@@ -1,0 +1,7 @@
+﻿<#FOREACH#>
+    <<#TABLENAME#>Provider Assembly="SNTON.DLL" Type="SNTON.Components..<#TABLENAME#>" Id="<#TABLENAME#>Provider" Enabled="true">
+      <CONFIG HibernateSessionPoolToUse="SQLServerDatabase"
+              HousekeepingCleanupAfterDays="7" HousekeepingFrequencyInMs="3600000" HousekeepingCleanupMaxRecords="500"
+              HousekeepingEnabled="false" CachingEnabled="false"/>
+    </<#TABLENAME#>Provider>
+<#/FOREACH#>

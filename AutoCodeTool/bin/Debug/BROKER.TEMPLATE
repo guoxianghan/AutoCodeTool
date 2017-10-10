@@ -1,0 +1,24 @@
+﻿        #region <#TABLENAME#>
+		#pragma warning disable 649
+        [ConfigBoundProperty("<#TABLENAME#>ProviderId")]
+        private string <#tABLENAME#>ProviderId;
+        #pragma warning restore 649
+
+        private I<#TABLENAME#> <#tABLENAME#>Provider;
+		/* brokerNode
+
+		*/
+        /// <summary>
+        /// Instance of the configValues
+        /// </summary>
+        public I<#TABLENAME#> <#TABLENAME#>Provider
+        {
+            get
+            {
+                Kernel.Glue.RetrieveComponentInstance(ref <#tABLENAME#>Provider, <#tABLENAME#>ProviderId, this);
+
+                return <#tABLENAME#>Provider;
+            }
+            set { <#tABLENAME#>Provider = value; }
+        }
+       #endregion

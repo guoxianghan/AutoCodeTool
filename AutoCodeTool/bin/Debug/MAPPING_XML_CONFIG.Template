@@ -1,0 +1,3 @@
+﻿<#FOREACH#>
+    <mapping resource="<#ASSEMBLY#>.Resources.Hibernate.Mappings.<#TABLENAME#>.hbm.xml" assembly="<#ASSEMBLY#>"/>
+<#/FOREACH#>

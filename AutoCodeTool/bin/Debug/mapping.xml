@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mapping>
+  <map source="NAMESPACE" operate="REPLACE" target="NAMESPACE"/> 
+  <FOREACH source="COLUMN">
+    <map source="DESCRIPTION" operate="REPLACE" target="DESCRIPTION"/>
+    <map source="COLUMNNAME" operate="REPLACE" target="COLUMNNAME"/>
+    <map source="TYPE" operate="REPLACE" target="TYPE"/>
+  </FOREACH> 
+</mapping>

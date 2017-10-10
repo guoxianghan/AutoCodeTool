@@ -1,0 +1,9 @@
+D:\workspace\AutoCodeTool\AutoCodeTool\obj\Debug\AutoCodeTool.FrmMain.resources
+D:\workspace\AutoCodeTool\AutoCodeTool\obj\Debug\AutoCodeTool.Properties.Resources.resources
+D:\workspace\AutoCodeTool\AutoCodeTool\obj\Debug\AutoCodeTool.csproj.GenerateResource.Cache
+D:\workspace\AutoCodeTool\AutoCodeTool\bin\Debug\AutoCodeTool.exe
+D:\workspace\AutoCodeTool\AutoCodeTool\bin\Debug\AutoCodeTool.pdb
+D:\workspace\AutoCodeTool\AutoCodeTool\obj\Debug\AutoCodeTool.exe
+D:\workspace\AutoCodeTool\AutoCodeTool\obj\Debug\AutoCodeTool.pdb
+D:\workspace\AutoCodeTool\AutoCodeTool\bin\Debug\AutoCodeTool.exe.config
+D:\workspace\AutoCodeTool\AutoCodeTool\obj\Debug\AutoCodeTool.csprojResolveAssemblyReference.cache

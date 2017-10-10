@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Address>.</Address>
+  <username>sa</username>
+  <pwd>123</pwd>
+  <path>C:\Users\Guo\Desktop\模版</path>
+  <namespace>SNTON.Entities.DBTables</namespace>
+  <schema>SNTON</schema>
+  <assemly>SNTON</assemly>
+</Config>

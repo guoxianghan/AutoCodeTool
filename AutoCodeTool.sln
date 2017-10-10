@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCodeTool", "AutoCodeTool\AutoCodeTool.csproj", "{9E38C3F7-5469-4847-B811-044BA30D7BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "..\DataBase\DataBase.csproj", "{7A09BA23-AF37-4063-9B19-10ABB6079D7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseInfo", "..\Sier.Base.Database\DataBaseInfo.csproj", "{A422B1C7-434C-498F-9A48-8C77573919DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SierFormsControlLibrary", "..\SierFormsControlLibrary\SierFormsControlLibrary.csproj", "{37E37313-E4A3-48D8-94EF-0B8BC44BC74B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E38C3F7-5469-4847-B811-044BA30D7BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E38C3F7-5469-4847-B811-044BA30D7BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E38C3F7-5469-4847-B811-044BA30D7BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E38C3F7-5469-4847-B811-044BA30D7BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A09BA23-AF37-4063-9B19-10ABB6079D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A09BA23-AF37-4063-9B19-10ABB6079D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A09BA23-AF37-4063-9B19-10ABB6079D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A09BA23-AF37-4063-9B19-10ABB6079D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A422B1C7-434C-498F-9A48-8C77573919DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A422B1C7-434C-498F-9A48-8C77573919DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A422B1C7-434C-498F-9A48-8C77573919DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A422B1C7-434C-498F-9A48-8C77573919DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E37313-E4A3-48D8-94EF-0B8BC44BC74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E37313-E4A3-48D8-94EF-0B8BC44BC74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E37313-E4A3-48D8-94EF-0B8BC44BC74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E37313-E4A3-48D8-94EF-0B8BC44BC74B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://sier.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AutoCodeTool\\AutoCodeTool.csproj
+		SccProjectName1 = AutoCodeTool
+		SccLocalPath1 = AutoCodeTool
+		SccProjectUniqueName2 = ..\\DataBase\\DataBase.csproj
+		SccProjectName2 = ../DataBase
+		SccLocalPath2 = ..\\DataBase
+		SccProjectUniqueName3 = ..\\Sier.Base.Database\\DataBaseInfo.csproj
+		SccProjectName3 = ../Sier.Base.Database
+		SccLocalPath3 = ..\\Sier.Base.Database
+		SccProjectUniqueName4 = ..\\SierFormsControlLibrary\\SierFormsControlLibrary.csproj
+		SccProjectName4 = ../SierFormsControlLibrary
+		SccLocalPath4 = ..\\SierFormsControlLibrary
+	EndGlobalSection
+EndGlobal
