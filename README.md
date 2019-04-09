@@ -1,0 +1,1 @@
+	NHibernate 代码生成工具,包含XML和实体类
